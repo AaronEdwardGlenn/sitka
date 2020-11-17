@@ -14,5 +14,6 @@ export interface AppState {
 const sitka = new Sitka<AppModules>({ log: true})
 sitka.register([new CheckboxModule()])
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-export const store = <Store>sitka.createStore()
+const store = <Store>sitka.createStore()
+
+export { store, sitka}

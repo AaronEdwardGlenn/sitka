@@ -1,13 +1,17 @@
 import React from "react"
-import { connect } from "react-redux";
-import { AppState, AppModules } from "./modules";
+import { connect } from "react-redux"
+import { AppState, AppModules } from "./modules"
 import AROLCheckbox from "./components/checkbox"
-
+import PageShell from "./components/pageshell"
+import Header from "./components/header"
 
 function App() {
   return (
     <div className="App">
-      <AROLCheckbox />
+      <PageShell>
+        <Header />
+        <AROLCheckbox />
+      </PageShell>
     </div>
   );
 }

@@ -9,7 +9,7 @@ type CounterProps = {
 
 const Counter = ({ sitkaState }: CounterProps) => {
   const { checkBox: { count } } = sitkaState
-  const color = count === 2 ? "pink" : "green"
+  const color = count === 2 ? "pink" : count === 3 ? "yellow" : count === 4 ? "orange" : count === 5 ? "green" : "white"
   return (
     <CounterContainer style={{ backgroundColor: color }}>
       Count: {count}

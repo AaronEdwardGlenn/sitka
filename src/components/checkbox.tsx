@@ -2,7 +2,6 @@ import * as React from "react"
 import {
   FormControl,
   FormGroup,
-  FormLabel,
 } from "@material-ui/core"
 import { makeStyles, styled } from "@material-ui/core/styles"
 import { connect } from "react-redux"
@@ -37,7 +36,6 @@ const AROLCheckbox = ({
       <Counter />
       <CheckboxContainer style={styles}>
         <FormControl component="fieldset" className={classes.formControl}>
-          <FormLabel component="legend"><b>Consent Status</b></FormLabel>
           <FormGroup>
             <CheckBoxes items={boxes} />
           </FormGroup>
@@ -57,5 +55,5 @@ export default connect((state: AppState) => {
 const CheckboxContainer = styled(animated.div)({
   display: "flex",
   justifyContent: "left",
-  margin: 20,
+  margin: 20
 })

@@ -14,6 +14,6 @@ export interface AppState {
 const sitka = new Sitka<AppModules>({ log: true})
 sitka.register([new CheckboxModule()])
 
-const store = <Store>sitka.createStore()
+const store = sitka.createStore() as Store
 
 export { store, sitka}

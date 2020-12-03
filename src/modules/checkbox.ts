@@ -1,5 +1,5 @@
 import { SitkaModule } from "olio-sitka"
-import { call, select } from "redux-saga/effects"
+import { call, put, select } from "redux-saga/effects"
 import { AppModules } from "."
 
 export type CheckboxState = any
@@ -11,12 +11,28 @@ export class CheckboxModule extends SitkaModule<CheckboxState, AppModules> {
     boxes: [
       {
         checked: false,
-        name: "rule1",
+        name: "Don’t pollute the console log",
       },
       {
         checked: false,
-        name: "rule2",
-      }
+        name: "Don’t hardcoded strings and appStyles",
+      },
+      {
+        checked: false,
+        name: "Keep formatting strict",
+      },
+      {
+        checked: false,
+        name: "Make sure yarn build prod works before finalizing PR",
+      },
+      {
+        checked: false,
+        name: "Cross PR with yourselves",
+      },
+      {
+        checked: false,
+        name: "And ask me questions of you are not sure of things don’t wait till PR",
+      },
     ]
   }
 
@@ -47,5 +63,14 @@ export class CheckboxModule extends SitkaModule<CheckboxState, AppModules> {
           ...state.boxes
     })
     this.handleIncrementCount()
+  }
+
+  public *handleReset(): {} {
+    const state = yield select(this.getState)
+    state.boxes.map((box: any) => box.checked = false)
+    yield call(this.mergeState, {
+      ...state.boxes
+    })
+    yield put(this.resetState())
   }
 }

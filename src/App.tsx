@@ -4,6 +4,8 @@ import { AppState, AppModules } from "./modules"
 import AROLCheckbox from "./components/checkbox"
 import PageShell from "./components/pageshell"
 import Header from "./components/header"
+import Counter from "./components/counter"
+
 
 function App() {
   return (

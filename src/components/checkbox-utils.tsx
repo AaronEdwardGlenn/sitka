@@ -14,7 +14,7 @@ const CheckBoxes = ({ items, checkboxModule }: any) => {
           checked={item.checked}
           onChange={() => handleChecked(item.name)}
         />}
-      label={item.label}
+      label={item.name}
     />
   ))
   return checkboxes

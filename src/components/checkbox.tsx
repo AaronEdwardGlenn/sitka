@@ -15,6 +15,7 @@ import { useSpring, animated } from "react-spring"
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import CheckBoxes, { CheckboxesI } from "./checkbox-utils"
+import Counter from "./counter"
 
 
 
@@ -42,6 +43,7 @@ const AROLCheckbox = ({
 
   return (
     <>
+      <Counter />
       <CheckboxContainer style={styles}>
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend"><b>Consent Status</b></FormLabel>

@@ -14,6 +14,7 @@ import { CheckboxModule } from "../modules/checkbox"
 import { useSpring, animated } from "react-spring"
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import CheckBoxes, { CheckboxesI } from "./checkbox-utils"
 
 
 
@@ -29,35 +30,13 @@ const useStyles = makeStyles((theme) => ({
 type AROLCheckboxProps = {
   readonly checkboxModule: CheckboxModule
   readonly sitkaState: AppState;
-
 }
 
 const AROLCheckbox = ({
   checkboxModule,
   sitkaState
-
 }: AROLCheckboxProps) => {
   const classes = useStyles();
-  const [checkboxVal, setCheckboxVal] = React.useState({
-    rule1: false,
-    rule2: false,
-    rule3: false,
-    rule4: false,
-    rule5: false,
-    rule6: false,
-  })
-
-
-  const handleChange = (event: { target: { name: string, checked: boolean } }) => {
-    setCheckboxVal({ ...checkboxVal, [event.target.name]: event.target.checked })
-    checkboxModule.handleUpdateCount(event.target.checked)
-    // setAdvCheckboxVal(event.target.checked)
-  }
-
-
-  const { rule1, rule2, rule3, rule4, rule5, rule6 } = checkboxVal
-
-  // <h1>{checkBox}</h1>
 
   const styles = useSpring({ opacity: 1, from: { opacity: 0 } })
 
@@ -67,42 +46,7 @@ const AROLCheckbox = ({
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend"><b>Consent Status</b></FormLabel>
           <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={rule2}
-                  onChange={handleChange}
-                  name="rule2"
-                />}
-              label="Pending"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={rule3}
-                  onChange={handleChange}
-                  name="rule3"
-                />}
-              label="Active"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={rule4}
-                  onChange={handleChange}
-                  name="rule4"
-                />}
-              label="Expired"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={rule5}
-                  onChange={handleChange}
-                  name="rule5"
-                />}
-              label="Revoked"
-            />
+            <CheckBoxes items={checkboxModule.defaultState.boxes} />
           </FormGroup>
         </FormControl>
       </CheckboxContainer>

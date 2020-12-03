@@ -4,7 +4,9 @@ import { Box, styled } from "@material-ui/core"
 const Header = () => {
   return (
     <HeaderContainer>
-      Aron's Rules of Life
+      <div>
+        Aron's Rules of Life
+      </div>
     </HeaderContainer>
   )
 }
@@ -13,7 +15,9 @@ export default Header
 
 //styles
 const HeaderContainer = styled(Box)({
+  display: "flex",
   backgroundColor: "lightblue",
   fontSize: "18",
-  fontWeight: "bold"
+  fontWeight: "bold",
+  justifyContent: "center"
 })

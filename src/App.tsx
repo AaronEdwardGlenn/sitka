@@ -12,20 +12,26 @@ function App({ checkboxMod }: any) {
   const { handleReset } = checkboxMod
   return (
     <div className="App">
+      <Header content={"PR Review Checklist"} />
       <PageShell>
         <PageContent
+          // header={
+          //   <Header content={"PR Review Checklist"} />
+          // }
           leftSide={
             <>
-              <Header />
+              <Header content={"Aron's Rules Of Life"} />
               <AROLCheckbox />
             </>
           }
           rightSide={
             <>
-              <Header />
+              <Header content={"Aaron's Extra List"} />
               <AROLCheckbox />
-              <ResetButton handleClick={handleReset} />
             </>
+          }
+          footer={
+            <ResetButton handleClick={handleReset} />
           }
         />
       </PageShell>

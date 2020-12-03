@@ -1,11 +1,15 @@
 import React from "react"
 import { Box, styled } from "@material-ui/core"
 
-const Header = () => {
+interface HeaderProps {
+  content: string
+}
+
+const Header = ({ content }: HeaderProps) => {
   return (
-    <HeaderContainer>
+    <HeaderContainer style={{ background: "lightblue" }}>
       <div>
-        Aron's Rules of Life
+        {content}
       </div>
     </HeaderContainer>
   )
@@ -16,7 +20,6 @@ export default Header
 //styles
 const HeaderContainer = styled(Box)({
   display: "flex",
-  backgroundColor: "lightblue",
   fontSize: "18",
   fontWeight: "bold",
   justifyContent: "center"

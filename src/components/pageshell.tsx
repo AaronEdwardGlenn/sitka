@@ -18,6 +18,6 @@ export default PageShell
 //Styles
 
 const PageContainer = styled(Box)({
-  margin: "30px",
+  margin: "20px",
   boxShadow: "2px 2px 2px 2px"
 })

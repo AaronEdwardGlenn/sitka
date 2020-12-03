@@ -3,19 +3,34 @@ import { Box, styled } from "@material-ui/core"
 
 interface PageContentProps {
   leftSide: any,
-  rightSide: any
+  rightSide: any,
+  header?: any,
+  footer?: any
 }
 
-const PageContent = ({ leftSide, rightSide }: PageContentProps) => {
+const PageContent = ({
+  leftSide,
+  rightSide,
+  header,
+  footer
+}: PageContentProps) => {
   return (
-    <PageContainer>
-      <LeftSide>
-        {leftSide}
-      </LeftSide>
-      <RightSide>
-        {rightSide}
-      </RightSide>
-    </PageContainer>
+    <>
+      <HeaderContainer>
+        {header}
+      </HeaderContainer>
+      <PageContainer>
+        <LeftSideContainer>
+          {leftSide}
+        </LeftSideContainer>
+        <RightSideContainer>
+          {rightSide}
+        </RightSideContainer>
+      </PageContainer>
+      <FooterContainer>
+        {footer}
+      </FooterContainer>
+    </>
   )
 }
 
@@ -26,12 +41,22 @@ const PageContainer = styled(Box)({
   overflow: "hidden",
 })
 
-const LeftSide = styled(Box)({
+const LeftSideContainer = styled(Box)({
   marginRight: "auto",
   background: "blue"
 })
 
-const RightSide = styled(Box)({
+const RightSideContainer = styled(Box)({
   marginLeft: "auto",
   background: "green"
+})
+
+const HeaderContainer = styled(Box)({
+  background: "yellow"
+})
+
+const FooterContainer = styled(Box)({
+  background: "red",
+  display: "flex",
+  justifyContent: "center"
 })

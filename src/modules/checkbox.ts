@@ -1,7 +1,6 @@
-import { Box } from "@material-ui/core"
 import { SitkaModule } from "olio-sitka"
-import { call, put, select } from "redux-saga/effects"
-import { AppModules, AppState } from "."
+import { call, select } from "redux-saga/effects"
+import { AppModules } from "."
 
 export type CheckboxState = any
 
@@ -50,4 +49,3 @@ export class CheckboxModule extends SitkaModule<CheckboxState, AppModules> {
     this.handleIncrementCount()
   }
 }
-

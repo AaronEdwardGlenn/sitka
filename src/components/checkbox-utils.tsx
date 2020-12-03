@@ -2,6 +2,7 @@ import { Checkbox, FormControlLabel } from "@material-ui/core"
 import React from "react"
 import { connect } from "react-redux"
 import { AppModules, AppState, sitka } from "../modules/index"
+
 export interface CheckboxesI { checked: boolean, name: string | undefined; label: string }
 
 const CheckBoxes = ({ items, checkboxModule }: any) => {
@@ -26,4 +27,4 @@ export default connect((state: AppState) => {
     sitkaState: state,
     checkboxModule: modules.checkBox,
   };
-})(CheckBoxes);
+})(CheckBoxes)

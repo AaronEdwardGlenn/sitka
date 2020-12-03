@@ -1,8 +1,7 @@
 import { Box, styled } from "@material-ui/core"
 import React from "react"
 import { connect } from "react-redux"
-import { AppModules, AppState, sitka } from "../modules"
-
+import { AppState } from "../modules"
 
 type CounterProps = {
   readonly sitkaState: AppState;

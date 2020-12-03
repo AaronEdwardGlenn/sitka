@@ -1,23 +1,15 @@
 import * as React from "react"
 import {
-  Box,
-  Checkbox,
   FormControl,
-  FormControlLabel,
   FormGroup,
   FormLabel,
 } from "@material-ui/core"
 import { makeStyles, styled } from "@material-ui/core/styles"
 import { connect } from "react-redux"
-import { AppModules, AppState, sitka } from "../modules/index"
-import { CheckboxModule } from "../modules/checkbox"
+import { AppState } from "../modules/index"
 import { useSpring, animated } from "react-spring"
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import CheckBoxes, { CheckboxesI } from "./checkbox-utils"
+import CheckBoxes from "./checkbox-utils"
 import Counter from "./counter"
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,17 +21,16 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type AROLCheckboxProps = {
-  readonly checkboxModule: CheckboxModule
   readonly sitkaState: AppState;
 }
 
 const AROLCheckbox = ({
-  checkboxModule,
   sitkaState
 }: AROLCheckboxProps) => {
   const classes = useStyles();
 
   const styles = useSpring({ opacity: 1, from: { opacity: 0 } })
+  const { checkBox: { boxes } } = sitkaState
 
   return (
     <>
@@ -48,7 +39,7 @@ const AROLCheckbox = ({
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend"><b>Consent Status</b></FormLabel>
           <FormGroup>
-            <CheckBoxes items={checkboxModule.defaultState.boxes} />
+            <CheckBoxes items={boxes} />
           </FormGroup>
         </FormControl>
       </CheckboxContainer>
@@ -57,9 +48,7 @@ const AROLCheckbox = ({
 }
 
 export default connect((state: AppState) => {
-  const modules: AppModules = sitka.getModules()
   return {
-    checkboxModule: modules.checkBox,
     sitkaState: state
   }
 })(AROLCheckbox)
@@ -70,9 +59,3 @@ const CheckboxContainer = styled(animated.div)({
   justifyContent: "left",
   margin: 20,
 })
-
-const stringStyle = {
-  display: "flex",
-  alignItems: "center",
-  margin: 5
-}

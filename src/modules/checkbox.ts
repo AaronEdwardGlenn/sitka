@@ -2,7 +2,15 @@ import { SitkaModule } from "olio-sitka"
 import { call, put, select } from "redux-saga/effects"
 import { AppModules } from "."
 
-export type CheckboxState = any
+type Boxes = {
+  checked: boolean,
+  name: string
+}
+
+export type CheckboxState = {
+  count: number,
+  boxes: Array<Boxes>
+}
 
 export class CheckboxModule extends SitkaModule<CheckboxState, AppModules> {
   public moduleName: string = "checkBox"

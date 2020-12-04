@@ -1,13 +1,14 @@
 import * as React from "react"
 import {
+  Checkbox,
   FormControl,
+  FormControlLabel,
   FormGroup,
 } from "@material-ui/core"
 import { makeStyles, styled } from "@material-ui/core/styles"
 import { connect } from "react-redux"
 import { AppState } from "../modules/index"
 import { useSpring, animated } from "react-spring"
-import CheckBoxes from "./checkbox-utils"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,24 +19,42 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-type AROLCheckboxProps = {
+type UserCheckboxProps = {
   readonly sitkaState: AppState;
 }
 
-const AROLCheckbox = ({
+const UserCheckbox = ({
   sitkaState
-}: AROLCheckboxProps) => {
+}: UserCheckboxProps) => {
   const classes = useStyles();
 
   const styles = useSpring({ opacity: 1, from: { opacity: 0 } })
-  const { checkBox: { boxes } } = sitkaState
+
+  // const boxes =
+  //   <FormControlLabel
+  //     key={"KEY"}
+  //     control={
+  //       <Checkbox
+  //         checked={false}
+  //         onChange={() => alert("NAME")}
+  //       />}
+  //     label={"NAME"}
+  //   />
 
   return (
     <>
       <CheckboxContainer style={styles}>
         <FormControl component="fieldset" className={classes.formControl}>
           <FormGroup>
-            <CheckBoxes items={boxes} />
+            <FormControlLabel
+              key={"KEY"}
+              control={
+                <Checkbox
+                  checked={false}
+                  onChange={() => alert("NAME")}
+                />}
+              label={"NAME"}
+            />
           </FormGroup>
         </FormControl>
       </CheckboxContainer>
@@ -47,7 +66,7 @@ export default connect((state: AppState) => {
   return {
     sitkaState: state
   }
-})(AROLCheckbox)
+})(UserCheckbox)
 
 //styles
 const CheckboxContainer = styled(animated.div)({

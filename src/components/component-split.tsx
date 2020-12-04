@@ -2,8 +2,8 @@ import React from "react"
 import { Box, styled } from "@material-ui/core"
 
 interface PageContentProps {
-  leftSide: any,
-  rightSide: any,
+  leftSide?: any,
+  rightSide?: any,
   header?: any,
   footer?: any
 }
@@ -42,12 +42,12 @@ const PageContainer = styled(Box)({
 })
 
 const LeftSideContainer = styled(Box)({
-  marginRight: "auto",
+  width: "50%",
   background: "blue"
 })
 
 const RightSideContainer = styled(Box)({
-  marginLeft: "auto",
+  width: "50%",
   background: "green"
 })
 

@@ -6,13 +6,15 @@ import PageShell from "./components/pageshell"
 import Header from "./components/header"
 import ResetButton from "./components/button"
 import PageContent from "./components/component-split"
-
+import UserCheckbox from "./components/user-checkbox"
+import Counter from "./components/counter"
 
 function App({ checkboxMod }: any) {
   const { handleReset } = checkboxMod
   return (
     <div className="App">
       <Header content={"PR Review Checklist"} />
+      <Counter />
       <PageShell>
         <PageContent
           // header={
@@ -27,11 +29,13 @@ function App({ checkboxMod }: any) {
           rightSide={
             <>
               <Header content={"Aaron's Extra List"} />
-              <AROLCheckbox />
+              <UserCheckbox />
             </>
           }
           footer={
-            <ResetButton handleClick={handleReset} />
+            <>
+              <ResetButton handleClick={handleReset} />
+            </>
           }
         />
       </PageShell>

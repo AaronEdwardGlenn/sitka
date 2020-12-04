@@ -3,7 +3,11 @@ import React from "react"
 import { connect } from "react-redux"
 import { AppModules, AppState, sitka } from "../modules/index"
 
-export interface CheckboxesI { checked: boolean, name: string | undefined; label: string }
+export interface CheckboxesI {
+  checked: boolean,
+  name: string | undefined
+  label: string
+}
 
 const CheckBoxes = ({ items, checkboxModule }: any) => {
   const { handleChecked } = checkboxModule

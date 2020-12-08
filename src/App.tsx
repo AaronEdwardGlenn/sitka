@@ -9,6 +9,8 @@ import PageContent from "./components/component-split"
 import UserCheckbox from "./components/user-checkbox"
 import Counter from "./components/counter"
 
+require('dotenv').config()
+
 function App({ checkboxMod }: any) {
   const { handleReset } = checkboxMod
   return (

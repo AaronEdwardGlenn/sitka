@@ -1,23 +1,9 @@
 import * as React from "react"
-import {
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-} from "@material-ui/core"
-import { makeStyles, styled } from "@material-ui/core/styles"
+import { TextField } from "@material-ui/core"
 import { connect } from "react-redux"
 import { AppState } from "../modules/index"
-import { useSpring, animated } from "react-spring"
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  formControl: {
-    margin: theme.spacing(3),
-  },
-}))
+import { useState } from "react"
+import { checklistRef } from "../modules/firebase"
 
 type UserCheckboxProps = {
   readonly sitkaState: AppState;
@@ -26,41 +12,32 @@ type UserCheckboxProps = {
 const UserCheckbox = ({
   sitkaState
 }: UserCheckboxProps) => {
-  const classes = useStyles();
 
-  const styles = useSpring({ opacity: 1, from: { opacity: 0 } })
-
-  // const boxes =
-  //   <FormControlLabel
-  //     key={"KEY"}
-  //     control={
-  //       <Checkbox
-  //         checked={false}
-  //         onChange={() => alert("NAME")}
-  //       />}
-  //     label={"NAME"}
-  //   />
+  const [label, setLabel] = useState("")
+  const createCheckbox = (e: React.FormEvent<EventTarget>) => {
+    const customCheckbox = {
+      name: label,
+      checked: false
+    }
+    checklistRef.push(customCheckbox)
+  }
 
   return (
     <>
-      <CheckboxContainer style={styles}>
-        <FormControl component="fieldset" className={classes.formControl}>
-          <FormGroup>
-            <FormControlLabel
-              key={"KEY"}
-              control={
-                <Checkbox
-                  checked={false}
-                  onChange={() => alert("NAME")}
-                />}
-              label={"NAME"}
-            />
-          </FormGroup>
-        </FormControl>
-      </CheckboxContainer>
+      <form onSubmit={createCheckbox}>
+        <TextField
+          style={{ width: "100%" }}
+          id="outlined-basic"
+          value={label}
+          onChange={(e) => setLabel(e.target.value)}
+          label="Add checkbox to your list."
+          variant="outlined"
+        />
+      </form>
     </>
   )
 }
+
 
 export default connect((state: AppState) => {
   return {
@@ -68,9 +45,3 @@ export default connect((state: AppState) => {
   }
 })(UserCheckbox)
 
-//styles
-const CheckboxContainer = styled(animated.div)({
-  display: "flex",
-  justifyContent: "left",
-  margin: 20
-})

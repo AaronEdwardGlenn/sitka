@@ -9,7 +9,7 @@ type UserCheckboxProps = {
   readonly sitkaState: AppState;
 }
 
-const UserCheckbox = ({
+const UserCheckboxGenerator = ({
   sitkaState
 }: UserCheckboxProps) => {
 
@@ -43,5 +43,4 @@ export default connect((state: AppState) => {
   return {
     sitkaState: state
   }
-})(UserCheckbox)
-
+})(UserCheckboxGenerator)

@@ -14,7 +14,7 @@ export interface AppState {
   readonly __sitka__: Sitka<AppModules>;
 }
 
-const sitka = new Sitka<AppModules>({ log: true})
+const sitka = new Sitka<AppModules>({ log: false})
 sitka.register([new CheckboxModule()])
 sitka.register([new AuthModule()])
 

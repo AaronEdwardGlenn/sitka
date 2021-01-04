@@ -1,6 +1,7 @@
 import firebase from "firebase/app"
+import "firebase/auth"
+import "firebase/firestore"
 import "firebase/database"
-
 
 const config = {
 apiKey: process.env.REACT_APP_APIKEY,
@@ -13,8 +14,7 @@ appId: process.env.REACT_APP_APPID,
 measurementId: process.env.REACT_APP_MID
 }
 
-console.log(config, "CONFIGGGGGG");
-
+console.log(config, "CONFIGGGGGG")
 
 firebase.initializeApp(config)
 

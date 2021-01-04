@@ -6,7 +6,7 @@ import PageShell from "./components/pageshell"
 import Header from "./components/header"
 import ResetButton from "./components/button"
 import PageContent from "./components/component-split"
-import UserCheckbox from "./components/user-checkbox"
+import UserCheckbox from "./components/user-checkbox-generator"
 import Counter from "./components/counter"
 
 require('dotenv').config()

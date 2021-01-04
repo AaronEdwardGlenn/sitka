@@ -11,4 +11,6 @@ export class AuthModule extends SitkaModule<AuthState, AppModules> {
     password: "",
     loggedIn: false
   }
+
+  
 }
